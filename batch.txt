@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "You want coffee?"
+echo "Enter Y for yes"
+echo "Enter N for no"
