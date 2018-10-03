@@ -91,16 +91,66 @@ int main( int argc, char **argv ){
 				//for path cmd
 
 				else if( strcmp( temp_array[0], "path") == 0  ){
-					char* const path_array[10] = { temp_array[1], temp_array[2], temp_array[3], temp_array[4] , temp_array[5], temp_array[6],
+				/*	char* const path_array[10] = { temp_array[1], temp_array[2], temp_array[3], temp_array[4] , temp_array[5], temp_array[6],
 						temp_array[7], temp_array[8], temp_array[9] };
 
 					int i = 0;
 
-					while ( path_array[i] != NULL ){
+					while ( path_array[i] != NULL || strcmp( buffer, "exit") != 0 ){
+
+						char *new_array[10] = {NULL};
+
+						//split user cmd by spaces
+						char *sp_cmd = strtok(buffer, " ");
+
+
+						int i = 0;
+
+
+						while(sp_cmd != NULL){
+							new_array[i] = sp_cmd;
+							i++;
+							sp_cmd = strtok(NULL, " ");
+						}
+						char* const perm_array[10] = { new_array[0], new_array[1], new_array[2], new_array[3], new_array[4] , new_array[5], new_array[6],
+						new_array[7], new_array[8], new_array[9] };
+
+						char *path = malloc( strlen(temp_array[i+1]) + strlen(new_array[0]) + 1 );
 						
+						strcat( path , temp_array [i+1] );
+						strcat( path, new_array[0] );
+						if (access( path, X_OK) == 0){
+
+
+							pid_t pid = fork();
+							//error  -- fork didn't work
+
+							if ( pid < 0){
+							//	printf( "%ld",(long)getpid());
+								fprintf(stderr, "\n folder fork failed\n");
+								exit(1);
+							}
+							else if(pid == 0){
+
+
+								execv( path, perm_array);
+								//error checking
+								printf("since this prints then execv didn't work");
+							}
+							pid = wait(NULL); 
+
+						
+
+							printf("wish> ");
+							getline( &buffer, &buffer_size, stdin);
+
+							if (buffer[strlen(buffer) -1 ] == '\n'){buffer[strlen(buffer) - 1] = '\0';}
+						}//for access ability
+
 						i++;
 					}
-				}
+					exit(0);
+*/				}
 
 				else{
 					printf("either path needs to run or something broke");
@@ -222,10 +272,6 @@ int main( int argc, char **argv ){
 				}
 
 
-
-
-
-
 				//creating address variables for the possible addresses
 				char * address_one = "/usr/bin/";
 				char * address_two = "/bin/";
@@ -245,9 +291,39 @@ int main( int argc, char **argv ){
 				strcat (path_two, address_two );
 				strcat (path_two, temp_array[0] );
 
+			//if cmd if exit, cd or path..
+			if(  strcmp(temp_array[0], "cd") == 0 || strcmp( temp_array[0], "exit") == 0 ||  strcmp (temp_array[0], "path") == 0   ){
 
+				//for exit cmd
+				if ( (strcmp(temp_array[0], "exit") == 0) && (strcmp( temp_array[1], "" ) == 0) ){
+					exit(0);
+				}
+				else if( (strcmp(temp_array[0], "exit") == 0) && (strcmp( temp_array[1], "" ) != 0)   ){
+					perror("No other arguments need with exit");
+					exit(0);
+				}
 
+				//for cd cmd
+				else if( strcmp(temp_array[0], "cd") == 0 ) {
 
+					chdir( temp_array[1] );
+					//error checking for cd --more than two args passed
+					if (temp_array[2] != NULL){printf("Too many arguments\n");}
+
+				}
+				//for path cmd
+
+				else if( strcmp( temp_array[0], "path") == 0  ){
+	//stopped here
+						}
+
+				else{
+					printf("either path needs to run or something broke");
+				}
+
+			}
+
+				else{
 				//check if we can access the path
 				if ( access( path_one, X_OK) == 0 ){
 
@@ -301,6 +377,7 @@ int main( int argc, char **argv ){
 					printf("command does not exist or file name does not exist\n");
 				}
 			}
+			}//end of else for cd, exit, path
 			exit(0);
 
 	}//if the file exists
