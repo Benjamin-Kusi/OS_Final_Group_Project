@@ -39,13 +39,16 @@ int main( int argc, char **argv ){
 
 
 			int i = 0;
-
+			int count_args = 0;
 
 			while(split_cmd != NULL){
 				temp_array[i] = split_cmd;
 				i++;
 				split_cmd = strtok(NULL, " ");
+				count_args++;
 			}
+//			printf("%i", count_args);
+
 //---beginning of latest comment
 
 			//creating address variables for the possible addresses
@@ -56,7 +59,7 @@ int main( int argc, char **argv ){
 			//allocate space in memory for paths
 			char *path_one = malloc( strlen(address_one) + strlen(temp_array[0]) + 1 );
 			char *path_two = malloc( strlen(address_two) + strlen(temp_array[0]) + 1 );
-
+			
 
 			//create full path for path one
 			strcat( path_one, address_one );
@@ -69,7 +72,8 @@ int main( int argc, char **argv ){
 
 			//execute each of the commands 
 			//if cmd if exit, cd or path..
-			if(  strcmp(temp_array[0], "cd") == 0 || strcmp( temp_array[0], "exit") == 0 ||  strcmp (temp_array[0], "path") == 0   ){
+			if(  strcmp(temp_array[0], "cd") == 0 || strcmp( temp_array[0], "exit") == 0 ||  strcmp (temp_array[0], "path") == 0 ||
+					strcmp(temp_array[count_args - 2], ">") == 0   ){
 
 				//for exit cmd
 				if ( (strcmp(temp_array[0], "exit") == 0) && (strcmp( temp_array[1], "" ) == 0) ){
@@ -88,70 +92,36 @@ int main( int argc, char **argv ){
 					if (temp_array[2] != NULL){printf("Too many arguments\n");}
 
 				}
-				//for path cmd
+				//for redirection  code cmd
 
-				else if( strcmp( temp_array[0], "path") == 0  ){
-				/*	char* const path_array[10] = { temp_array[1], temp_array[2], temp_array[3], temp_array[4] , temp_array[5], temp_array[6],
-						temp_array[7], temp_array[8], temp_array[9] };
+				else if( strcmp(temp_array[count_args-2], ">") == 0 ){
 
-					int i = 0;
-
-					while ( path_array[i] != NULL || strcmp( buffer, "exit") != 0 ){
-
-						char *new_array[10] = {NULL};
-
-						//split user cmd by spaces
-						char *sp_cmd = strtok(buffer, " ");
+					if ( access( path_one, X_OK) == 0 ){
 
 
-						int i = 0;
+					//fill param_array
+					char* const param_array[10] = {path_one, NULL,NULL,NULL,NULL,NULL,NULL,NULL, NULL, NULL };
+					pid_t pid = fork();
+					//error  -- fork didn't work
 
 
-						while(sp_cmd != NULL){
-							new_array[i] = sp_cmd;
-							i++;
-							sp_cmd = strtok(NULL, " ");
-						}
-						char* const perm_array[10] = { new_array[0], new_array[1], new_array[2], new_array[3], new_array[4] , new_array[5], new_array[6],
-						new_array[7], new_array[8], new_array[9] };
-
-						char *path = malloc( strlen(temp_array[i+1]) + strlen(new_array[0]) + 1 );
-						
-						strcat( path , temp_array [i+1] );
-						strcat( path, new_array[0] );
-						if (access( path, X_OK) == 0){
-
-
-							pid_t pid = fork();
-							//error  -- fork didn't work
-
-							if ( pid < 0){
-							//	printf( "%ld",(long)getpid());
-								fprintf(stderr, "\n folder fork failed\n");
-								exit(1);
-							}
-							else if(pid == 0){
-
-
-								execv( path, perm_array);
-								//error checking
-								printf("since this prints then execv didn't work");
-							}
-							pid = wait(NULL); 
-
-						
-
-							printf("wish> ");
-							getline( &buffer, &buffer_size, stdin);
-
-							if (buffer[strlen(buffer) -1 ] == '\n'){buffer[strlen(buffer) - 1] = '\0';}
-						}//for access ability
-
-						i++;
+					if ( pid < 0){
+					//	printf( "%ld",(long)getpid());
+						fprintf(stderr, "\n usrbin folder fork failed\n");
+						exit(1);
 					}
-					exit(0);
-*/				}
+					else if(pid == 0){
 
+
+						execv( path_one, param_array);
+						//error checking
+						printf("since this prints then execv didn't work");
+					}
+					pid = wait(NULL); 
+				}
+				else{ printf("redirection aint working\n");}
+
+				}
 				else{
 					printf("either path needs to run or something broke");
 				}
