@@ -47,7 +47,6 @@ int main( int argc, char **argv ){
 				split_cmd = strtok(NULL, " ");
 				count_args++;
 			}
-//			printf("%i", count_args);
 
 //---beginning of latest comment
 
@@ -96,7 +95,7 @@ int main( int argc, char **argv ){
 
 				else if( strcmp(temp_array[count_args-2], ">") == 0 ){
 
-				if ( access( path_two, X_OK) == 0 ){
+					if ( access( path_two, X_OK) == 0 ){
 
 
 					//fill param_array
@@ -111,17 +110,17 @@ int main( int argc, char **argv ){
 						exit(1);
 					}
 					else if(pid == 0){
-
-
+						
+						freopen(temp_array[count_args - 1], "w", stdout);
 						execv( path_two, param_array);
 						//error checking
 						printf("since this prints then execv didn't work");
 					}
 					pid = wait(NULL); 
-				}
-				else{ printf("redirection aint working\n");}
 
-				}
+			}//end of if the path works
+		//	else{ printf("redirection aint working\n");}
+				}//end of redirection code
 				else{
 					printf("either path needs to run or something broke");
 				}

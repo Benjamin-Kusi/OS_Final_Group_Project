@@ -1329,3 +1329,53 @@ cd ..
 cd bin
 cd ..
 la
+nano wish.c
+gcc -o wish wish.c
+./wish
+nano wish.c
+git init
+git status
+git remote -v
+git push origin 
+git status
+git pull origin master
+git add wish.c
+git status
+ls
+git branch project3
+git merge master
+git merge project3
+git add wish.c
+git status
+git push origin master
+git status
+git commit -a
+git commit -a "project3 addon"
+git commit -a -m "project3 addon"
+ls
+git remote -v
+git add wish.c
+git status
+git push
+nano wish.c
+ls /bin
+ls usr/bin
+ls usr/bin/
+ls /usr/bin/
+q
+nano wish.c
+gcc -o wish wish.c
+./wish
+nano wish.c
+gcc -o wish wish.c
+./wish
+nano wish.c
+git commit -a -m "redirection works a bit"
+git push
+nano wish.c
+gcc -o wish wish.c
+nano wish.c
+gcc -o wish wish.c
+nano wish.c
+gcc -o wish wish.c
+cls
