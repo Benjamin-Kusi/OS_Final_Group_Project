@@ -96,11 +96,11 @@ int main( int argc, char **argv ){
 
 				else if( strcmp(temp_array[count_args-2], ">") == 0 ){
 
-					if ( access( path_one, X_OK) == 0 ){
+				if ( access( path_two, X_OK) == 0 ){
 
 
 					//fill param_array
-					char* const param_array[10] = {path_one, NULL,NULL,NULL,NULL,NULL,NULL,NULL, NULL, NULL };
+					char* const param_array[10] = {path_two, NULL,NULL,NULL,NULL,NULL,NULL,NULL, NULL, NULL };
 					pid_t pid = fork();
 					//error  -- fork didn't work
 
@@ -113,7 +113,7 @@ int main( int argc, char **argv ){
 					else if(pid == 0){
 
 
-						execv( path_one, param_array);
+						execv( path_two, param_array);
 						//error checking
 						printf("since this prints then execv didn't work");
 					}
