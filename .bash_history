@@ -1379,3 +1379,30 @@ gcc -o wish wish.c
 nano wish.c
 gcc -o wish wish.c
 cls
+gcc -o wish wish.c
+nano wish.c
+nano my-cat.c
+nano wish.c
+gcc -o wish wish.c
+nano wish.c
+gcc -o wish wish.c
+nano wish.c
+gcc -o wish wish.c
+./wish
+nano output.txt
+nano wish.c
+gcc -o wish wish.c
+./wish
+nano here.txt
+git -a -m "redirection now works and writes to output file"
+git commit -a -m "redirection now works and writes to output file"
+git push
+nano wish
+nano wish.c
+gcc -o wish wish.c
+./wish
+gcc -o wish wish.c
+./wish
+./wish batch.txt
+./wish batch.txt test.txt
+./wish

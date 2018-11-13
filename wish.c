@@ -13,6 +13,7 @@ int main( int argc, char **argv ){
 	char *buffer;
 	size_t buffer_size = 32;
 	ssize_t read;
+	char error_message[30] = "An error has occurred\n";
 	//allocating memory to the buffer
 	buffer = (char *)malloc(buffer_size * sizeof(char));
 
@@ -29,7 +30,6 @@ int main( int argc, char **argv ){
 		if (buffer[strlen(buffer) -1 ] == '\n'){buffer[strlen(buffer) - 1] = '\0';}
 		//while they are not the same
 		while( strcmp( buffer, "exit") != 0 ){
-
 
 			//creating a temp array to hold values that the user will enter
 			char *temp_array[10] = {NULL};
@@ -69,8 +69,81 @@ int main( int argc, char **argv ){
 			strcat (path_two, address_two );
 			strcat (path_two, temp_array[0] );
 
+			//for parallel commands only
+			if (strcmp(temp_array[1], "&") == 0  || strcmp(temp_array[2], "&") == 0  || strcmp(temp_array[3], "&") == 0 ||
+			strcmp(temp_array[4], "&") == 0  || strcmp(temp_array[5], "&") == 0  || strcmp(temp_array[6], "&") == 0  || 
+			strcmp(temp_array[7], "&") == 0  || strcmp(temp_array[8], "&") == 0  || ){
+
+				//split at & 
+				char *and_array[5] = {NULL};
+
+
+				char *split_and = strtok(buffer, "&");
+
+				int i = 0;
+				while(split_and != NULL){
+					and_array[i] = split_and;
+					i++;
+					split_and = strtok(NULL, "&");
+
+				}
+				//now split at the spaces
+				//take each command and split by spaces and store in an array. can only take a max of 5 commands
+				char *space_array1[6] = {NULL};
+				char *space_array2[6] = {NULL};
+				char *space_array3[6] = {NULL};
+				char *space_array4[6] = {NULL};
+				char *space_array5[6] = {NULL};
+
+				int i = 0;
+				char *split_space = strtok(and_array[0], " ");
+				while(split_space != NULL){
+					space_array1[i] = split_space;
+					i++;
+					split_space = strtok(NULL, " ");
+
+				}
+				char *split_space = strtok(and_array[1], " ");
+				while(split_space != NULL){
+					space_array2[i] = split_space;
+					i++;
+					split_space = strtok(NULL, " ");
+
+				}
+				char *split_space = strtok(and_array[2], " ");
+				while(split_space != NULL){
+					space_array3[i] = split_space;
+					i++;
+					split_space = strtok(NULL, " ");
+
+				}
+				char *split_space = strtok(and_array[3], " ");
+				while(split_space != NULL){
+					space_array4[i] = split_space;
+					i++;
+					split_space = strtok(NULL, " ");
+
+				}
+				char *split_space = strtok(and_array[4], " ");
+				while(split_space != NULL){
+					space_array5[i] = split_space;
+					i++;
+					split_space = strtok(NULL, " ");
+
+				}
+				
+
+
+			}
+
+
+			
+
+
+
+
 			//execute each of the commands 
-			//if cmd if exit, cd or path..
+			//if cmd if exit, cd or path, > or &
 			if(  strcmp(temp_array[0], "cd") == 0 || strcmp( temp_array[0], "exit") == 0 ||  strcmp (temp_array[0], "path") == 0 ||
 					strcmp(temp_array[count_args - 2], ">") == 0   ){
 
@@ -79,7 +152,7 @@ int main( int argc, char **argv ){
 					exit(0);
 				}
 				else if( (strcmp(temp_array[0], "exit") == 0) && (strcmp( temp_array[1], "" ) != 0)   ){
-					perror("No other arguments need with exit");
+					perror("No other arguments needed with exit");
 					exit(0);
 				}
 
@@ -182,7 +255,8 @@ int main( int argc, char **argv ){
 
 
 				else{
-					printf("command does not exist or file name does not exist\n");
+					//error message here
+					write(STDERR_FILENO, error_message, strlen(error_message));
 				}
 
 
