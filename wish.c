@@ -6,12 +6,94 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <pthread.h>
 
+void * first_thread(void * arg);
+
+void* first_thread( void *arg ){
+/*	char * and_array = (char*) arg;
+	int i = 0;
+	char *space_array1[6] = {NULL};
+	char *split_space = strtok(and_array, " ");
+	while(split_space != NULL){
+		space_array1[i] = split_space;
+		i++;
+		split_space = strtok(NULL, " ");
+	}
+
+	char * address_one = "/usr/bin/";
+	char * address_two = "/bin/";
+	//allocate space in memory for paths
+	char *path_one = malloc( strlen(address_one) + strlen(space_array1[0]) + 1 );
+	char *path_two = malloc( strlen(address_two) + strlen(space_array1[0]) + 1 );
+	
+
+	//create full path for path one
+	strcat( path_one, address_one );
+	strcat( path_one, space_array1[0] );
+
+
+	//create full path for path two
+	strcat (path_two, address_two );
+	strcat (path_two, space_array1[0] );
+	if ( access( path_one, X_OK) == 0 ){
+
+		//fill param_array
+		char* const param_array[10] = {path_one, space_array1[1], space_array1[2], space_array1[3], 
+				space_array1[4],space_array1[5] };
+		pid_t pid = fork();
+		//error  -- fork didn't work
+		if ( pid < 0){
+		//	printf( "%ld",(long)getpid());
+			fprintf(stderr, "\n usrbin folder fork failed\n");
+			exit(1);
+		}
+		else if(pid == 0){
+
+
+			execv( path_one, param_array);
+			//error checking
+			printf("since this prints then execv didn't work");
+		}
+		pid = wait(NULL); 
+	}
+	else if (access (path_two, X_OK) == 0){
+
+			//fill param_array
+		char* const param_array[10] = {path_two, space_array1[1], space_array1[2], space_array1[3], 
+				space_array1[4],space_array1[5] };
+		pid_t pid = fork();
+		//error  -- fork didn't work
+		if ( pid < 0){
+			fprintf(stderr, "\n bin folder-fork failed\n");
+			exit(1);
+		}
+		else if(pid == 0){
+			execv( path_two, param_array);
+		}
+		pid = wait(NULL);
+	}
+*/
+
+	printf("thread running");
+}
+
+
+int ampersandchecker(char* arr[]){
+	int i = 0;
+	while (arr[i] != NULL){
+		if (strcmp(arr[i], "&") == 0){
+			return 1;
+		}
+
+	i++;
+	}
+}
 
 
 int main( int argc, char **argv ){
 	char *buffer;
-	size_t buffer_size = 32;
+	size_t buffer_size = 128;
 	ssize_t read;
 	char error_message[30] = "An error has occurred\n";
 	//allocating memory to the buffer
@@ -32,7 +114,7 @@ int main( int argc, char **argv ){
 		while( strcmp( buffer, "exit") != 0 ){
 
 			//creating a temp array to hold values that the user will enter
-			char *temp_array[10] = {NULL};
+			char *temp_array[10] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,NULL, NULL};
 
 			//split user cmd by spaces
 			char *split_cmd = strtok(buffer, " ");
@@ -70,12 +152,10 @@ int main( int argc, char **argv ){
 			strcat (path_two, temp_array[0] );
 
 			//for parallel commands only
-			if (strcmp(temp_array[1], "&") == 0  || strcmp(temp_array[2], "&") == 0  || strcmp(temp_array[3], "&") == 0 ||
-			strcmp(temp_array[4], "&") == 0  || strcmp(temp_array[5], "&") == 0  || strcmp(temp_array[6], "&") == 0  || 
-			strcmp(temp_array[7], "&") == 0  || strcmp(temp_array[8], "&") == 0  || ){
-
-				//split at & 
-				char *and_array[5] = {NULL};
+			if (ampersandchecker(temp_array) == 1){
+				//split at &
+						printf("parallel here");
+	/*			char *and_array[10] = {NULL};
 
 
 				char *split_and = strtok(buffer, "&");
@@ -87,65 +167,20 @@ int main( int argc, char **argv ){
 					split_and = strtok(NULL, "&");
 
 				}
-				//now split at the spaces
-				//take each command and split by spaces and store in an array. can only take a max of 5 commands
-				char *space_array1[6] = {NULL};
-				char *space_array2[6] = {NULL};
-				char *space_array3[6] = {NULL};
-				char *space_array4[6] = {NULL};
-				char *space_array5[6] = {NULL};
+				//create threads and pass values to them
+				pthread_t id1; 
+				int t1;
+				t1 = pthread_create( &id1, NULL, first_thread, NULL);
+				pthread_join(id1,NULL);
 
-				int i = 0;
-				char *split_space = strtok(and_array[0], " ");
-				while(split_space != NULL){
-					space_array1[i] = split_space;
-					i++;
-					split_space = strtok(NULL, " ");
+	*/			
 
-				}
-				char *split_space = strtok(and_array[1], " ");
-				while(split_space != NULL){
-					space_array2[i] = split_space;
-					i++;
-					split_space = strtok(NULL, " ");
-
-				}
-				char *split_space = strtok(and_array[2], " ");
-				while(split_space != NULL){
-					space_array3[i] = split_space;
-					i++;
-					split_space = strtok(NULL, " ");
-
-				}
-				char *split_space = strtok(and_array[3], " ");
-				while(split_space != NULL){
-					space_array4[i] = split_space;
-					i++;
-					split_space = strtok(NULL, " ");
-
-				}
-				char *split_space = strtok(and_array[4], " ");
-				while(split_space != NULL){
-					space_array5[i] = split_space;
-					i++;
-					split_space = strtok(NULL, " ");
-
-				}
-				
-
-
-			}
-
-
-			
-
-
-
+			}//end of while loop for 
 
 			//execute each of the commands 
 			//if cmd if exit, cd or path, > or &
 			if(  strcmp(temp_array[0], "cd") == 0 || strcmp( temp_array[0], "exit") == 0 ||  strcmp (temp_array[0], "path") == 0 ||
-					strcmp(temp_array[count_args - 2], ">") == 0   ){
+					strcmp(temp_array[count_args - 2], ">") == 0 ){
 
 				//for exit cmd
 				if ( (strcmp(temp_array[0], "exit") == 0) && (strcmp( temp_array[1], "" ) == 0) ){
@@ -171,39 +206,68 @@ int main( int argc, char **argv ){
 					if ( access( path_two, X_OK) == 0 ){
 
 
-					//fill param_array
-					char* const param_array[10] = {path_two, NULL,NULL,NULL,NULL,NULL,NULL,NULL, NULL, NULL };
-					pid_t pid = fork();
-					//error  -- fork didn't work
+						//fill param_array
+						char* const param_array[10] = {path_two, NULL,NULL,NULL,NULL,NULL,NULL,NULL, NULL, NULL };
+						pid_t pid = fork();
+						//error  -- fork didn't work
 
 
-					if ( pid < 0){
-					//	printf( "%ld",(long)getpid());
-						fprintf(stderr, "\n usrbin folder fork failed\n");
-						exit(1);
-					}
-					else if(pid == 0){
-						
-						freopen(temp_array[count_args - 1], "w", stdout);
-						execv( path_two, param_array);
-						//error checking
-						printf("since this prints then execv didn't work");
-					}
-					pid = wait(NULL); 
+						if ( pid < 0){
+						//	printf( "%ld",(long)getpid());
+							fprintf(stderr, "\n usrbin folder fork failed\n");
+							exit(1);
+						}
+						else if(pid == 0){
+							
+							freopen(temp_array[count_args - 1], "w", stdout);
+							execv( path_two, param_array);
+							//error checking
+							printf("since this prints then execv didn't work");
+						}
+						pid = wait(NULL); 
 
-			}//end of if the path works
-		//	else{ printf("redirection aint working\n");}
+					}//end of if the access pathtwo  works
+
+
+					if ( access( path_one, X_OK) == 0 ){
+
+
+						//fill param_array
+						char* const param_array[10] = {path_one, NULL,NULL,NULL,NULL,NULL,NULL,NULL, NULL, NULL };
+						pid_t pid = fork();
+						//error  -- fork didn't work
+
+
+						if ( pid < 0){
+						//	printf( "%ld",(long)getpid());
+							fprintf(stderr, "\n usrbin folder fork failed\n");
+							exit(1);
+						}
+						else if(pid == 0){
+							
+							freopen(temp_array[count_args - 1], "w", stdout);
+							execv( path_one, param_array);
+							//error checking
+							printf("since this prints then execv didn't work");
+						}
+						pid = wait(NULL); 
+
+					}//end of if the access path one works
+
+
+
 				}//end of redirection code
 				else{
 					printf("either path needs to run or something broke");
 				}
 
-			}
+			}//end of if for special cmds
 
 
 			//else do this...
 			else{
 				//check if we can access the path
+//				printf("ruunning other none special cmds\n");
 				if ( access( path_one, X_OK) == 0 ){
 
 
@@ -256,6 +320,7 @@ int main( int argc, char **argv ){
 
 				else{
 					//error message here
+					printf("problem oh\n");
 					write(STDERR_FILENO, error_message, strlen(error_message));
 				}
 
@@ -268,7 +333,7 @@ int main( int argc, char **argv ){
 			if (buffer[strlen(buffer) -1 ] == '\n'){buffer[strlen(buffer) - 1] = '\0';}
 
 
-		}
+		}//end of while not exit
 		exit(0);
 
 
