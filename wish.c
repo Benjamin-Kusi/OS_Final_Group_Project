@@ -9,9 +9,13 @@
 #include <pthread.h>
 
 void * first_thread(void * arg);
+void * second_thread(void * arg);
+void * third_thread(void * arg);
+void * fourth_thread(void * arg);
+void * fifth_thread(void * arg);
 
-void* first_thread( void *arg ){
-/*	char * and_array = (char*) arg;
+void * first_thread(void *arg){
+	char * and_array = (char*) arg;
 	int i = 0;
 	char *space_array1[6] = {NULL};
 	char *split_space = strtok(and_array, " ");
@@ -73,10 +77,273 @@ void* first_thread( void *arg ){
 		}
 		pid = wait(NULL);
 	}
-*/
 
-	printf("thread running");
+
+}//end of thread
+
+
+void * second_thread(void * args){
+	char * and_array1 = (char*) args;
+	int i = 0;
+	char *space_array2[6] = {NULL, NULL, NULL, NULL, NULL, NULL};
+	char *split_space = strtok(and_array1, " ");
+	while(split_space != NULL){
+		space_array2[i] = split_space;
+		i++;
+		split_space = strtok(NULL, " ");
+	}
+
+	char * address_one_ = "/usr/bin/";
+	char * address_two_ = "/bin/";
+	//allocate space in memory for paths
+	char *path_one_ = malloc( strlen(address_one_) + strlen(space_array2[0]) + 1 );
+	char *path_two_ = malloc( strlen(address_two_) + strlen(space_array2[0]) + 1 );
+	
+
+	//create full path for path one
+	strcat( path_one_, address_one_ );
+	strcat( path_one_, space_array2[0] );
+
+
+	//create full path for path two
+	strcat (path_two_, address_two_ );
+	strcat (path_two_, space_array2[0] );
+	if ( access( path_one_, X_OK) == 0 ){
+
+		//fill param_array
+		char* const param_array[10] = {path_one_, space_array2[1], space_array2[2], space_array2[3], 
+				space_array2[4],space_array2[5] };
+		pid_t pid = fork();
+		//error  -- fork didn't work
+		if ( pid < 0){
+		//	printf( "%ld",(long)getpid());
+			fprintf(stderr, "\n usrbin folder fork failed\n");
+			exit(1);
+		}
+		else if(pid == 0){
+
+
+			execv( path_one_, param_array);
+			//error checking
+			printf("since this prints then execv didn't work");
+		}
+		pid = wait(NULL); 
+	}
+	else if (access (path_two_, X_OK) == 0){
+
+			//fill param_array
+		char* const param_array[10] = {path_two_, space_array2[1], space_array2[2], space_array2[3], 
+				space_array2[4],space_array2[5] };
+		pid_t pid = fork();
+		//error  -- fork didn't work
+		if ( pid < 0){
+			fprintf(stderr, "\n bin folder-fork failed\n");
+			exit(1);
+		}
+		else if(pid == 0){
+			execv( path_two_, param_array);
+		}
+		pid = wait(NULL);
+	}
+
+
 }
+void * third_thread(void * args){
+char * and_array1 = (char*) args;
+	int i = 0;
+	char *space_array2[6] = {NULL, NULL, NULL, NULL, NULL, NULL};
+	char *split_space = strtok(and_array1, " ");
+	while(split_space != NULL){
+		space_array2[i] = split_space;
+		i++;
+		split_space = strtok(NULL, " ");
+	}
+
+	char * address_one_ = "/usr/bin/";
+	char * address_two_ = "/bin/";
+	//allocate space in memory for paths
+	char *path_one_ = malloc( strlen(address_one_) + strlen(space_array2[0]) + 1 );
+	char *path_two_ = malloc( strlen(address_two_) + strlen(space_array2[0]) + 1 );
+	
+
+	//create full path for path one
+	strcat( path_one_, address_one_ );
+	strcat( path_one_, space_array2[0] );
+
+
+	//create full path for path two
+	strcat (path_two_, address_two_ );
+	strcat (path_two_, space_array2[0] );
+	if ( access( path_one_, X_OK) == 0 ){
+
+		//fill param_array
+		char* const param_array[10] = {path_one_, space_array2[1], space_array2[2], space_array2[3], 
+				space_array2[4],space_array2[5] };
+		pid_t pid = fork();
+		//error  -- fork didn't work
+		if ( pid < 0){
+		//	printf( "%ld",(long)getpid());
+			fprintf(stderr, "\n usrbin folder fork failed\n");
+			exit(1);
+		}
+		else if(pid == 0){
+
+
+			execv( path_one_, param_array);
+			//error checking
+			printf("since this prints then execv didn't work");
+		}
+		pid = wait(NULL); 
+	}
+	else if (access (path_two_, X_OK) == 0){
+
+			//fill param_array
+		char* const param_array[10] = {path_two_, space_array2[1], space_array2[2], space_array2[3], 
+				space_array2[4],space_array2[5] };
+		pid_t pid = fork();
+		//error  -- fork didn't work
+		if ( pid < 0){
+			fprintf(stderr, "\n bin folder-fork failed\n");
+			exit(1);
+		}
+		else if(pid == 0){
+			execv( path_two_, param_array);
+		}
+		pid = wait(NULL);
+	}
+
+}
+void * fourth_thread(void * args){
+char * and_array1 = (char*) args;
+	int i = 0;
+	char *space_array2[6] = {NULL, NULL, NULL, NULL, NULL, NULL};
+	char *split_space = strtok(and_array1, " ");
+	while(split_space != NULL){
+		space_array2[i] = split_space;
+		i++;
+		split_space = strtok(NULL, " ");
+	}
+
+	char * address_one_ = "/usr/bin/";
+	char * address_two_ = "/bin/";
+	//allocate space in memory for paths
+	char *path_one_ = malloc( strlen(address_one_) + strlen(space_array2[0]) + 1 );
+	char *path_two_ = malloc( strlen(address_two_) + strlen(space_array2[0]) + 1 );
+	
+
+	//create full path for path one
+	strcat( path_one_, address_one_ );
+	strcat( path_one_, space_array2[0] );
+
+
+	//create full path for path two
+	strcat (path_two_, address_two_ );
+	strcat (path_two_, space_array2[0] );
+	if ( access( path_one_, X_OK) == 0 ){
+
+		//fill param_array
+		char* const param_array[10] = {path_one_, space_array2[1], space_array2[2], space_array2[3], 
+				space_array2[4],space_array2[5] };
+		pid_t pid = fork();
+		//error  -- fork didn't work
+		if ( pid < 0){
+		//	printf( "%ld",(long)getpid());
+			fprintf(stderr, "\n usrbin folder fork failed\n");
+			exit(1);
+		}
+		else if(pid == 0){
+
+
+			execv( path_one_, param_array);
+			//error checking
+			printf("since this prints then execv didn't work");
+		}
+		pid = wait(NULL); 
+	}
+	else if (access (path_two_, X_OK) == 0){
+
+			//fill param_array
+		char* const param_array[10] = {path_two_, space_array2[1], space_array2[2], space_array2[3], 
+				space_array2[4],space_array2[5] };
+		pid_t pid = fork();
+		//error  -- fork didn't work
+		if ( pid < 0){
+			fprintf(stderr, "\n bin folder-fork failed\n");
+			exit(1);
+		}
+		else if(pid == 0){
+			execv( path_two_, param_array);
+		}
+		pid = wait(NULL);
+	}
+
+}
+void * fifth_thread(void * args){
+char * and_array1 = (char*) args;
+	int i = 0;
+	char *space_array2[6] = {NULL, NULL, NULL, NULL, NULL, NULL};
+	char *split_space = strtok(and_array1, " ");
+	while(split_space != NULL){
+		space_array2[i] = split_space;
+		i++;
+		split_space = strtok(NULL, " ");
+	}
+
+	char * address_one_ = "/usr/bin/";
+	char * address_two_ = "/bin/";
+	//allocate space in memory for paths
+	char *path_one_ = malloc( strlen(address_one_) + strlen(space_array2[0]) + 1 );
+	char *path_two_ = malloc( strlen(address_two_) + strlen(space_array2[0]) + 1 );
+	
+
+	//create full path for path one
+	strcat( path_one_, address_one_ );
+	strcat( path_one_, space_array2[0] );
+
+
+	//create full path for path two
+	strcat (path_two_, address_two_ );
+	strcat (path_two_, space_array2[0] );
+	if ( access( path_one_, X_OK) == 0 ){
+
+		//fill param_array
+		char* const param_array[10] = {path_one_, space_array2[1], space_array2[2], space_array2[3], 
+				space_array2[4],space_array2[5] };
+		pid_t pid = fork();
+		//error  -- fork didn't work
+		if ( pid < 0){
+		//	printf( "%ld",(long)getpid());
+			fprintf(stderr, "\n usrbin folder fork failed\n");
+			exit(1);
+		}
+		else if(pid == 0){
+
+
+			execv( path_one_, param_array);
+			//error checking
+			printf("since this prints then execv didn't work");
+		}
+		pid = wait(NULL); 
+	}
+	else if (access (path_two_, X_OK) == 0){
+
+			//fill param_array
+		char* const param_array[10] = {path_two_, space_array2[1], space_array2[2], space_array2[3], 
+				space_array2[4],space_array2[5] };
+		pid_t pid = fork();
+		//error  -- fork didn't work
+		if ( pid < 0){
+			fprintf(stderr, "\n bin folder-fork failed\n");
+			exit(1);
+		}
+		else if(pid == 0){
+			execv( path_two_, param_array);
+		}
+		pid = wait(NULL);
+	}
+
+}
+
 
 
 int ampersandchecker(char* arr[]){
@@ -85,7 +352,6 @@ int ampersandchecker(char* arr[]){
 		if (strcmp(arr[i], "&") == 0){
 			return 1;
 		}
-
 	i++;
 	}
 }
@@ -112,13 +378,15 @@ int main( int argc, char **argv ){
 		if (buffer[strlen(buffer) -1 ] == '\n'){buffer[strlen(buffer) - 1] = '\0';}
 		//while they are not the same
 		while( strcmp( buffer, "exit") != 0 ){
-
+			char * buffer_copy;
+			strcpy(buffer_copy, buffer);
 			//creating a temp array to hold values that the user will enter
 			char *temp_array[10] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,NULL, NULL};
 
 			//split user cmd by spaces
 			char *split_cmd = strtok(buffer, " ");
 
+//			printf("all that i typed: %s\n", buffer_copy);
 
 			int i = 0;
 			int count_args = 0;
@@ -154,26 +422,75 @@ int main( int argc, char **argv ){
 			//for parallel commands only
 			if (ampersandchecker(temp_array) == 1){
 				//split at &
-						printf("parallel here");
-	/*			char *and_array[10] = {NULL};
+				char *and_array[10] = {NULL};
+				printf("buffer: %s", buffer_copy);
+				//char * buffer_copy_copy = buffer_copy;
+				char *split_and = strtok(buffer_copy, "&");
 
-
-				char *split_and = strtok(buffer, "&");
-
+				int count_ands = 0;
 				int i = 0;
 				while(split_and != NULL){
 					and_array[i] = split_and;
+//					printf ("and array val %s\n", and_array[i]);
 					i++;
+					count_ands++;
 					split_and = strtok(NULL, "&");
 
 				}
+
 				//create threads and pass values to them
 				pthread_t id1; 
 				int t1;
-				t1 = pthread_create( &id1, NULL, first_thread, NULL);
-				pthread_join(id1,NULL);
+				pthread_t id2; 
+				int t2;
+				pthread_t id3; 
+				int t3;
+				pthread_t id4; 
+				int t4;
+				pthread_t id5; 
+				int t5;
+				if (count_ands == 1){
+					t1 = pthread_create( &id1, NULL, first_thread, and_array[0]);
+					pthread_join(id1,NULL);
+				}
+				else if(count_ands == 2){
+					t1 = pthread_create( &id1, NULL, first_thread, and_array[0]);
+					t2 = pthread_create( &id2, NULL, second_thread, and_array[1]);
+					pthread_join(id1,NULL);
+					pthread_join(id2,NULL);
+				}
+				else if(count_ands == 3){
+					t1 = pthread_create( &id1, NULL, first_thread, and_array[0]);
+					t2 = pthread_create( &id2, NULL, second_thread, and_array[1]);
+					t3 = pthread_create( &id3, NULL, third_thread, and_array[2]);
+					pthread_join(id1,NULL);
+					pthread_join(id2,NULL);
+					pthread_join(id3,NULL);
+				}
+				else if(count_ands == 4){
+					t1 = pthread_create( &id1, NULL, first_thread, and_array[0]);
+					t2 = pthread_create( &id2, NULL, second_thread, and_array[1]);
+					t3 = pthread_create( &id3, NULL, third_thread, and_array[2]);
+					t4 = pthread_create( &id4, NULL, fourth_thread, and_array[3]);
+					pthread_join(id1,NULL);
+					pthread_join(id2,NULL);
+					pthread_join(id3,NULL);
+					pthread_join(id4,NULL);
+		} 
+				else if(count_ands == 5){
+					t1 = pthread_create( &id1, NULL, first_thread, and_array[0]);
+					t2 = pthread_create( &id2, NULL, second_thread, and_array[1]);
+					t3 = pthread_create( &id3, NULL, third_thread, and_array[2]);
+					t4 = pthread_create( &id4, NULL, fourth_thread, and_array[3]);
+					t5 = pthread_create( &id5, NULL, fifth_thread, and_array[4]);		
+					pthread_join(id1,NULL);
+					pthread_join(id2,NULL);
+					pthread_join(id3,NULL);
+					pthread_join(id4,NULL);
+					pthread_join(id5,NULL);
 
-	*/			
+		}
+
 
 			}//end of while loop for 
 
