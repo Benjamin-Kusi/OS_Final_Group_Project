@@ -1,36 +1,5 @@
-a.out
-bar.txt
-batch.txt
-captain
-
-comp
-comp.c
-er
-exampledir
-hello.py
-here.txt
-lsoutput.txt
-man
-
-marking
-message.txt
-my-cat
-my-cat.c
-my-cat.c.save
-my-grep
-my-grep.c
-mytest.c
-n
-out.txt
-output.txt
-rammy
-test2
-
-testbatch.txt
-try.c
-trying.c
-trying.c.save
-trytest
-wish
-wish.c
-wish.c.save
+75
+8
+everything came here
+Use exit() or Ctrl-D (i.e. EOF) to exit
+Use quit() or Ctrl-D (i.e. EOF) to exit

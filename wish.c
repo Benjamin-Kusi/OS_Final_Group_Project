@@ -48,7 +48,6 @@ void * first_thread(void *arg){
 		pid_t pid = fork();
 		//error  -- fork didn't work
 		if ( pid < 0){
-		//	printf( "%ld",(long)getpid());
 			fprintf(stderr, "\n usrbin folder fork failed\n");
 			exit(1);
 		}
@@ -385,9 +384,6 @@ int main( int argc, char **argv ){
 
 			//split user cmd by spaces
 			char *split_cmd = strtok(buffer, " ");
-
-//			printf("all that i typed: %s\n", buffer_copy);
-
 			int i = 0;
 			int count_args = 0;
 
@@ -423,15 +419,12 @@ int main( int argc, char **argv ){
 			if (ampersandchecker(temp_array) == 1){
 				//split at &
 				char *and_array[10] = {NULL};
-				printf("buffer: %s", buffer_copy);
-				//char * buffer_copy_copy = buffer_copy;
 				char *split_and = strtok(buffer_copy, "&");
 
 				int count_ands = 0;
 				int i = 0;
 				while(split_and != NULL){
 					and_array[i] = split_and;
-//					printf ("and array val %s\n", and_array[i]);
 					i++;
 					count_ands++;
 					split_and = strtok(NULL, "&");
@@ -504,7 +497,7 @@ int main( int argc, char **argv ){
 					exit(0);
 				}
 				else if( (strcmp(temp_array[0], "exit") == 0) && (strcmp( temp_array[1], "" ) != 0)   ){
-					perror("No other arguments needed with exit");
+					printf("An error has occured\n");
 					exit(0);
 				}
 
@@ -513,7 +506,7 @@ int main( int argc, char **argv ){
 
 					chdir( temp_array[1] );
 					//error checking for cd --more than two args passed
-					if (temp_array[2] != NULL){printf("Too many arguments\n");}
+					if (temp_array[2] != NULL){printf("An error has occured\n");}
 
 				}
 				//for redirection  code cmd
@@ -575,7 +568,7 @@ int main( int argc, char **argv ){
 
 				}//end of redirection code
 				else{
-					printf("either path needs to run or something broke");
+					printf("An error has occured\n");
 				}
 
 			}//end of if for special cmds

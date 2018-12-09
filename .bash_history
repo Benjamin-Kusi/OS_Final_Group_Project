@@ -1406,3 +1406,528 @@ gcc -o wish wish.c
 ./wish batch.txt
 ./wish batch.txt test.txt
 ./wish
+nano wish.c
+git commit
+git push
+git status
+git add
+git add .
+git push
+git commit -m "working on parallel commands"
+git push
+git status
+nano wish.c
+gcc -o wish wish.c
+nano wish.c
+gcc -o wish wish.c
+nano wish.c
+gcc -o wish wish.c
+clear
+gcc -o wish wish.c
+nano wish.c
+gcc -o wish wish.c
+nano wish.c
+gcc -o wish wish.c
+clear
+gcc -o wish wish.c
+nano wish.c
+gcc -o wish wish.c
+nano wish.c
+gcc -o wish wish.c
+clear
+gcc -o wish wish.c
+nano wish.c
+clear
+gcc -o wish wish.c
+nano wish.c
+gcc -o wish wish.c
+man pthread
+man pthread_T
+man pthread_t
+man pthread_create
+nano wish.c
+gcc -o wish wish.c
+nano wish.c
+gcc -o wish wish.c
+clear
+gcc -o wish wish.c
+nano wish.c
+gcc -o wish wish.c
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+./wish
+nano output.txt
+./wish
+nano output.txt
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano comp.c
+gcc -o comp comp.c
+nano comp.c
+gcc -o comp comp.c
+nano comp.c
+gcc -o comp comp.c
+./comp.c
+comp
+comp.c
+ls
+comp
+./comp
+nano comp.c
+gcc -o comp comp.c
+./comp
+nano comp.c
+gcc -o comp comp.c
+./comp
+nano comp.c
+gcc -o comp comp.c
+./comp
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+./wish
+ls
+nano wish.c
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+./wish
+ls   
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+git add .
+git commit
+git commit - m "so far so good"
+git commit -m "so far so good"
+git push
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+./wish
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+claeat
+clear
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+ls -la /tmp > output.txt
+git commit -m "final work-parallel cmds work!"
+git add .
+git commit -m "final work-parallel cmds work!"
+git push
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano myredirection.txt
+python3 hello.py > output.txt
+./wish
+nano out.txt
+./wish
+nano wish.c
+gcc -g -o wish wish.c -lpthread
+./wish
+nano wish.c
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+clear
+man pthread
+man pthread.h
+man pthread_create
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+clear
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+n_ccounter.c
+n_ccounter n_ccounter.c
+n_ccounter
+n_ccounter.c
+a
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+
+n_ccounter
+n_ccounter.c
+./n_ccounter
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+./n_ccounter
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+./n_ccounter
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+./n_ccounter
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+nano ccounter.c
+./ccounter
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+./ccounter
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+nano my-cat.c
+nano my-grep.c
+nano wish.c
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+clear
+gcc -g -o ccounter ccounter.c -lpthread
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+nano ccounter.c
+gcc -g -o ccounter ccounter.c -lpthread
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+clear
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+clear
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+clear
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano counter.c
+nano n_ccounter.c
+nano wish.c
+nano n_ccounter.c
+nano counter.c
+ls
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+clear
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+nnao ccounter.c
+nano ccounter.c
+ls
+nano n_ccounter.c
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+man pthread_create
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+./lock_counter.c
+./lock_counter
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+./lock_counter
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+./lock_counter
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+./lock_counter
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+./lock_counter
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+./lock_counter
+nano lock_counter.c
+nano n_ccounter.c
+man pthread_create
+nano n_ccounter.c
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+./lock_counter
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+./lock_counter
+nano lock_counter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+nano n_ccounter.c
+clear
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+nano n_ccounter.c
+gcc -g -o n_ccounter n_ccounter.c -lpthread
+./n_ccounter
+./lock_counter
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+clear
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+./lock_counter
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+./lock_counter
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+./lock_counter
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+nano lock_counter.c
+gcc -g -o lock_counter lock_counter.c -lpthread
+./lock_counter
+nano lock_counter.c
